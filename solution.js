@@ -20,13 +20,13 @@ function pangkat(a, b) {
 }
 
 function faktorial(n) {
-    if (n < 0) return undefined;
+    if (!Number.isInteger(n) || n < 0) return null; // Mengembalikan null jika input negatif atau bukan bilangan bulat
     if (n === 0 || n === 1) return 1;
     return n * faktorial(n - 1);
 }
 
 function isPrima(n) {
-    if (n < 2) return false;
+    if (!Number.isInteger(n) || n < 2) return false;
     for (let i = 2; i <= Math.sqrt(n); i++) {
         if (n % i === 0) return false;
     }
@@ -37,8 +37,8 @@ function modulus(a, b) {
     return a % b;
 }
 
-function absolut(n) {
-    return Math.abs(n);
+function absolut(a) {
+    return Math.abs(a);
 }
 
 function maksimum(a, b) {
@@ -49,8 +49,8 @@ function minimum(a, b) {
     return Math.min(a, b);
 }
 
-function bulatkan(n) {
-    return Math.round(n);
+function bulatkan(a) {
+    return Math.round(a);
 }
 
 // Ekspor semua fungsi agar bisa digunakan di test.js dan index.js
@@ -58,3 +58,4 @@ module.exports = {
     tambah, kurang, kali, bagi, pangkat, faktorial, isPrima, 
     modulus, absolut, maksimum, minimum, bulatkan 
 };
+
